@@ -71,7 +71,7 @@ int main(int argc, char **argv)
 	ImageGrabber igb(&SLAM);
 
 	ros::NodeHandle nodeHandler;
-	ros::Subscriber sub = nodeHandler.subscribe("/camera/image_raw", 1, &ImageGrabber::GrabImage,&igb);
+	ros::Subscriber sub = nodeHandler.subscribe("/usb_cam/image_raw", 1, &ImageGrabber::GrabImage,&igb);
 	pose_pub = nodeHandler.advertise<geometry_msgs::PoseStamped>("/camera_pose",1);
 	pub_dense = nodeHandler.advertise<svo_msgs::DenseInput>("/ORB/DenseInput",1);
 	ros::spin();
